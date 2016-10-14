@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
-  signature = "Amberish";
-  btnClick = false;
+  text = "Amberish";
+  open = false;
+
+  openEsign() {
+    this.open = true;
+  }
 }

@@ -1,3 +1,4 @@
 <div class="container">
-  <esign [open]="true" [signText]="signature"></esign>
+  <button (click)="openEsign()">Button</button>
+  <esign [open]="open" [text]="text" (closed)="closeEsign()"></esign>
 </div>

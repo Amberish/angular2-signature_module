@@ -1,4 +1,9 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, 
+          OnInit, 
+          Input, 
+          ViewChild, 
+          Output, 
+          EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'esign',
@@ -7,20 +12,27 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 })
 export class EsignComponent implements OnInit {
   @Input() open: boolean;
-  @Input() signText: string;
+  @Input() text: string;
+
+  @Output() close: EventEmitter<any> = new EventEmitter();
 
   //Get access to template ref
   @ViewChild('modal') modal;
 
-  constructor() { }
+  constructor(private emitter: EventEmitter<any>) { }
 
   ngOnInit() {
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes: any) {
+    console.log(changes);
     if(this.open == true){
       this.modal.open();
     }
+  }
+
+  modalOnClose() {
+    this.open = false;
   }
 
 }

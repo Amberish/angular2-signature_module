@@ -1,10 +1,10 @@
-<button (click)="myModal.open()">small modal</button>
-<modal #modal>
+<modal #modal
+    (onClose)="modalOnClose()">
     <modal-header>
         <h1>Signature</h1>
     </modal-header>
     <modal-content>
-        <signature></signature>
+        <signature [text]="text"></signature>
     </modal-content>
     <!--<modal-footer>
         <button class="btn btn-primary" (click)="myModal.close()">close</button>
